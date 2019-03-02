@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { ActivitiesComponent } from './activities/activities.component';
-import { MedicineComponent } from './medicine/medicine.component';
 import { BWatchComponent } from './bwatch/bwatch.component';
 
 export const appRoutes:Routes = [
@@ -11,7 +10,7 @@ export const appRoutes:Routes = [
   },
   {
     path: 'medicine',
-    component: MedicineComponent
+    loadChildren: './medicine/medicine.module#MedicineModule'
   },
   {
     path: '',
