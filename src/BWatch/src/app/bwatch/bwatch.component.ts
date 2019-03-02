@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'bwatch',
-  templateUrl: './bwatch.component.html'
+  template: '<h2>BWatch</h2>'
 })
 export class BWatchComponent {
   title = 'BWatch';
