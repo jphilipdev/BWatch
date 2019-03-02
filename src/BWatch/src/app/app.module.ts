@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MainComponent } from './main.component';
+import { NavComponent } from './nav/nav.component';
 import { BWatchComponent } from './bwatch/bwatch.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { MedicineComponent } from './medicine/medicine.component';
@@ -18,6 +19,7 @@ import { appRoutes } from './app.routes';
   ],
   declarations: [
     MainComponent,
+    NavComponent,
     BWatchComponent,
     ActivitiesComponent,
     MedicineComponent
