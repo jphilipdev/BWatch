@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { NavComponent } from './nav/nav.component';
 import { BWatchComponent } from './bwatch/bwatch.component';
-import { ActivitiesComponent } from './activities/activities.component';
 
 import { ActivitiesService } from './activities/activities.service';
 
@@ -20,7 +19,6 @@ import { appRoutes } from './app.routes';
     MainComponent,
     NavComponent,
     BWatchComponent,
-    ActivitiesComponent
   ],
   providers: [ActivitiesService],
   bootstrap: [MainComponent]
