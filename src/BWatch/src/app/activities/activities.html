@@ -1,2 +1,7 @@
 <h2>Activities</h2>
 <div *ngFor="let activity of activities">{{activity.name}}</div>
+
+<form [formGroup]="activityForm" (ngSubmit)="addActivity(activityForm.value)">
+  <input type="text" formControlName="activityName" [ngClass]="{formError: activityForm.controls.activityName.invalid && activityForm.controls.activityName.touched }"/>
+  <button type="submit">Add Activity</button>
+</form>
