@@ -1,4 +1,6 @@
 <div class="expand-panel">
   <div class="expand-panel-title" (click)='clickHandler()'>{{title}}</div>
-  <ng-content></ng-content>
+  <div class="expand-panel-body" [hidden]="hidden">
+    <ng-content></ng-content>
+  </div>
 </div>
