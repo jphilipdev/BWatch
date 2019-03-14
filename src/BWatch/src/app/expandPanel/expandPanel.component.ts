@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'expand-panel',
@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
 
 export class ExpandPanel {
 
-  @Input() title: string
   hidden: boolean
 
   constructor() {
