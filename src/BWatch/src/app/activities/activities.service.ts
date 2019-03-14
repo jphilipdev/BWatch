@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 export class ActivitiesService {
   getActivities = () => {
     return [
-      { name: 'Jumping' },
-      { name: 'Gym' }
+      { name: 'Jumping', isImportant: true },
+      { name: 'Gym', isImportant: false }
     ]
   }
 }

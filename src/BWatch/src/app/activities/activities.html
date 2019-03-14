@@ -2,7 +2,7 @@
 <div *ngFor="let activity of activities">
   <expand-panel>
     <div expand-title>{{activity.name}}</div>
-    <div expand-body>test content {{activity.name}}</div>
+    <div expand-body>test content {{activity.name | important:activity.isImportant}}</div>
   </expand-panel>
 </div>
 
