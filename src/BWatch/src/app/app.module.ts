@@ -21,6 +21,6 @@ import { appRoutes } from './app.routes';
     BWatchComponent,
   ],
   providers: [ActivitiesService],
-  bootstrap: [MainComponent]
+  bootstrap: [MainComponent],
 })
 export class AppModule { }
