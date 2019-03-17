@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { activitiesRoutes } from './activities.routes';
 import { ActivitiesComponent } from './activities.component';
-import { SharedModule } from '../shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [

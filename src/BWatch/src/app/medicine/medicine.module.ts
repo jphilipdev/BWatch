@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '../shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { MedicineComponent } from './medicine.component';
 import { medicineRoutes } from './medicine.routes';
 
