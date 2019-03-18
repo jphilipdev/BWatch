@@ -6,7 +6,13 @@
   </expand-panel>
 </div>
 
-<form [formGroup]="activityForm" (ngSubmit)="addActivity(activityForm.value)">
-  <input type="text" formControlName="activityName" [ngClass]="{formError: activityForm.controls.activityName.invalid && activityForm.controls.activityName.touched }"/>
-  <button type="submit">Add Activity</button>
-</form>
+<button class="btn btn-default" modal-trigger="add-activity-modal">Add Activity</button>
+<modal modalId="add-activity-modal" title="Add Activity">
+  <form [formGroup]="activityForm" (ngSubmit)="addActivity(activityForm.value)">
+    <input
+      type="text"
+      formControlName="activityName"
+      [ngClass]="{formError: activityForm.controls.activityName.invalid && activityForm.controls.activityName.touched }" />
+    <button type="submit">Add</button>
+  </form>
+</modal>
