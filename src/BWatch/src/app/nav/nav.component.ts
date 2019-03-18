@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'navigation',
   templateUrl: './nav.html',
   styles: [`
+    #nav-list { display: flex; list-style-type: none; }
     .active { color: red }
   `]
 })

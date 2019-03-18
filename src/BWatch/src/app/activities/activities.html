@@ -6,7 +6,7 @@
   </expand-panel>
 </div>
 
-<button class="btn btn-default" modal-trigger="add-activity-modal">Add Activity</button>
+<button class="btn btn-primary" modal-trigger="add-activity-modal">Add Activity</button>
 <modal modalId="add-activity-modal" title="Add Activity">
   <form [formGroup]="activityForm" (ngSubmit)="addActivity(activityForm.value)">
     <input
