@@ -11,6 +11,10 @@ export const appRoutes:Routes = [
     loadChildren: './medicine/medicine.module#MedicineModule'
   },
   {
+    path: 'food',
+    loadChildren: './food/food.module#FoodModule'
+  },
+  {
     path: '',
     component: BWatchComponent
   },

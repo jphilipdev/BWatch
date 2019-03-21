@@ -1,7 +1,18 @@
-<nav>
-  <ul id="nav-list">
-    <li><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">BWatch</a></li>
-    <li><a [routerLink]="['/activities']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Activities</a></li>
-    <li><a [routerLink]="['/medicine']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Medicine</a></li>
-  </ul>
-</nav>
+<div id="nav-container">
+  <nav>
+    <ul id="nav-list">
+      <li>
+        <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">BWatch</a>
+      </li>
+      <li>
+        <a [routerLink]="['/activities']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Activities</a>
+      </li>
+      <li>
+        <a [routerLink]="['/food']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Food</a>
+      </li>
+      <li>
+        <a [routerLink]="['/medicine']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Medicine</a>
+      </li>
+    </ul>
+  </nav>
+</div>
