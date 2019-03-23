@@ -16,7 +16,9 @@ import { Component } from '@angular/core';
     }
     #nav-list { display: flex; list-style-type: none; }
     #nav-list li { width: 8rem; }
-    .active { color: red }
+    #nav-list li a { color: #a70000; font-weight: 700; }
+    #nav-list li a:hover { border-bottom: 2px solid #a70000; text-decoration: none; }
+    #nav-list li a.active { border-bottom: 2px solid #a70000; }
   `]
 })
 
