@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ExpandPanel } from './components/expandPanel/expand-panel.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalTriggerDirective } from './directives/modal-trigger.directive';
+import { DurationValidatorDirective } from './directives/duration-validator.directive';
 import { ImportantPipe } from './pipes/important.pipe';
 import { TOASTR_TOKEN, Toastr } from './services/toastr.service';
 import { JQUERY_TOKEN } from './services/jquery.service';
@@ -17,6 +18,7 @@ declare let $: any
     ExpandPanel,
     ModalComponent,
     ModalTriggerDirective,
+    DurationValidatorDirective,
     ImportantPipe
   ],
   providers: [
@@ -35,6 +37,7 @@ declare let $: any
     ExpandPanel,
     ModalComponent,
     ModalTriggerDirective,
+    DurationValidatorDirective,
     ImportantPipe
   ]
 })

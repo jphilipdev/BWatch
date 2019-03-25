@@ -2,7 +2,6 @@ import { Inject, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivitiesService } from './activities.service';
 import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
-import { JQUERY_TOKEN } from '../shared/services/jquery.service';
 
 @Component({
   selector: 'activities',
@@ -26,8 +25,12 @@ export class ActivitiesComponent implements OnInit {
     this.activities = this.activitiesService.getActivities();
 
     let activityName = new FormControl('name', Validators.required);
+    let duration = new FormControl('duration');
+    let isImportant = new FormControl('isImportant');
     this.activityForm = new FormGroup({
-      activityName
+      activityName,
+      duration,
+      isImportant
     });
   }
 
