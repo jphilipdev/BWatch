@@ -13,6 +13,6 @@
       type="text"
       formControlName="activityName"
       [ngClass]="{formError: activityForm.controls.activityName.invalid && activityForm.controls.activityName.touched }" />
-    <button type="submit">Add</button>
+    <button #closemodal type="submit">Add</button>
   </form>
 </modal>
