@@ -9,4 +9,8 @@ export class ActivitiesService {
   getActivities = () => {
     return this.http.get('/api/activities');
   }
+
+  addActivity = (activity: any) => {
+    return this.http.post('/api/activities', activity);
+  }
 }

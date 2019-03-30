@@ -1,6 +1,14 @@
 {
   "activities": [
-    { "name": "Jumping", "isImportant": true },
-    { "name": "Gym", "isImportant": false }
+    {
+      "id": 1,
+      "name": "Jumping",
+      "isImportant": true
+    },
+    {
+      "id": 2,
+      "name": "Gym",
+      "isImportant": false
+    }
   ]
 }

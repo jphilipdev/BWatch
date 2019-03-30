@@ -1,6 +1,7 @@
 import { Inject, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ActivitiesService } from './activities.service';
 import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class ActivitiesComponent implements OnInit {
 
   constructor(
     route: ActivatedRoute,
+    private activitiesService: ActivitiesService,
     @Inject(TOASTR_TOKEN) private toastr: Toastr) {
       this.activities = route.snapshot.data['activities'];
   }
@@ -34,8 +36,14 @@ export class ActivitiesComponent implements OnInit {
   }
 
   addActivity(formValues) {
+    const { activityName, duration, isImportant } = formValues;
     if(this.activityForm.valid) {
-      this.toastr.success(formValues.activityName, 'Activity Added!');
+      this.activitiesService.addActivity({ name: activityName, isImportant, duration })
+        .subscribe(() => this.showAddSuccess(activityName));
     }
+  }
+
+  private showAddSuccess(activityName) {
+    this.toastr.success(activityName, 'Activity Added!')
   }
 }
