@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpService } from '../shared/services/http.service';
 
 @Injectable()
 export class ActivitiesService {
+   constructor(private http: HttpService) {
+   }
+
   getActivities = () => {
-    return [
-      { name: 'Jumping', isImportant: true },
-      { name: 'Gym', isImportant: false }
-    ]
+    return this.http.get('/api/activities');
   }
 }

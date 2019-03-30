@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MainComponent } from './main.component';
 import { NavComponent } from './nav/nav.component';
@@ -13,6 +14,7 @@ import { appRoutes } from './app.routes';
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [

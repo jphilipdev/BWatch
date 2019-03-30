@@ -1,6 +1,6 @@
 import { Inject, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { ActivitiesService } from './activities.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
 
 @Component({
@@ -12,17 +12,16 @@ import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
 })
 
 export class ActivitiesComponent implements OnInit {
-
   activities: any
   activityForm: FormGroup
 
   constructor(
-    private activitiesService: ActivitiesService,
+    route: ActivatedRoute,
     @Inject(TOASTR_TOKEN) private toastr: Toastr) {
+      this.activities = route.snapshot.data['activities'];
   }
 
   ngOnInit() {
-    this.activities = this.activitiesService.getActivities();
 
     let activityName = new FormControl('name', Validators.required);
     let duration = new FormControl('duration');

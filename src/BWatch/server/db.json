@@ -1,0 +1,6 @@
+{
+  "activities": [
+    { "name": "Jumping", "isImportant": true },
+    { "name": "Gym", "isImportant": false }
+  ]
+}
