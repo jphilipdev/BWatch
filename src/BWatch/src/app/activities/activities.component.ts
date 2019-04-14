@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ActivitiesService } from './activities.service';
 import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
+import { validateDuration } from '../shared/directives/durationValidator/duration-validator';
 
 @Component({
   selector: 'activities',
@@ -25,9 +26,9 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit() {
 
-    let activityName = new FormControl('name', Validators.required);
-    let duration = new FormControl('duration');
-    let isImportant = new FormControl('isImportant');
+    let activityName = new FormControl(null, Validators.required);
+    let duration = new FormControl(null, validateDuration);
+    let isImportant = new FormControl();
     this.activityForm = new FormGroup({
       activityName,
       duration,

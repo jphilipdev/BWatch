@@ -18,7 +18,6 @@
       type="text"
       formControlName="duration"
       required
-      validate-duration
       [ngClass]="{formError: activityForm.controls.duration.invalid && activityForm.controls.duration.touched }"/>
     <input type="checkbox" formControlName="isImportant" />
     <button #closemodal type="submit" [disabled]="activityForm.invalid">Add</button>

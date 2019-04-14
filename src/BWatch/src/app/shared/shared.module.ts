@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ExpandPanel } from './components/expandPanel/expand-panel.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalTriggerDirective } from './directives/modal-trigger.directive';
-import { DurationValidatorDirective } from './directives/duration-validator.directive';
+import { DurationValidatorDirective } from './directives/durationValidator/duration-validator.directive';
 import { ImportantPipe } from './pipes/important.pipe';
 import { HttpService } from './services/http.service';
 import { TOASTR_TOKEN, Toastr } from './services/toastr.service';

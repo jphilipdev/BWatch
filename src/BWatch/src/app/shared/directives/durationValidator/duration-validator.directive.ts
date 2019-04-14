@@ -1,5 +1,6 @@
 import { Directive } from '@angular/core';
 import { AbstractControl, Validator, ValidationErrors, NG_VALIDATORS } from '@angular/forms';
+import { validateDuration } from './duration-validator';
 
 @Directive({
   selector: '[validate-duration]',
@@ -8,9 +9,6 @@ import { AbstractControl, Validator, ValidationErrors, NG_VALIDATORS } from '@an
 
 export class DurationValidatorDirective implements Validator {
   validate(control: AbstractControl): ValidationErrors {
-    if(isNaN(Number(control.value))) {
-      return { validateDuration: true };
-    }
-    return null;
+    return validateDuration(control);
   }
 }
