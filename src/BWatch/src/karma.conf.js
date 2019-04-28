@@ -20,6 +20,11 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
+    files: [
+      '../node_modules/jquery/dist/jquery.min.js',
+      '../node_modules/bootstrap/dist/js/bootstrap.min.js',
+      '../node_modules/toastr/build/toastr.min.js'
+    ],
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,

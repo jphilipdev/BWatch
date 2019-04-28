@@ -25,7 +25,6 @@ export class ActivitiesComponent implements OnInit {
   }
 
   ngOnInit() {
-
     let activityName = new FormControl(null, Validators.required);
     let duration = new FormControl(null, validateDuration);
     let isImportant = new FormControl();
