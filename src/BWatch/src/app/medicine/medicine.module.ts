@@ -9,8 +9,7 @@ import { medicineRoutes } from './medicine.routes';
     SharedModule,
     RouterModule.forChild(medicineRoutes)
   ],
-  declarations: [MedicineComponent],
-  bootstrap: [MedicineComponent]
+  declarations: [MedicineComponent]
 })
 
 export class MedicineModule {}

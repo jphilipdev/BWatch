@@ -26,7 +26,7 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit() {
     let activityName = new FormControl(null, Validators.required);
-    let duration = new FormControl(null, validateDuration);
+    let duration = new FormControl(null, [Validators.required, validateDuration]);
     let isImportant = new FormControl();
     this.activityForm = new FormGroup({
       activityName,
@@ -38,7 +38,7 @@ export class ActivitiesComponent implements OnInit {
   addActivity(formValues) {
     const { activityName, duration, isImportant } = formValues;
     if(this.activityForm.valid) {
-      this.activitiesService.addActivity({ name: activityName, isImportant, duration })
+      this.activitiesService.addActivity({ name: activityName, isImportant: !!isImportant, duration })
         .subscribe(() => this.showAddSuccess(activityName));
     }
   }

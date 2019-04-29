@@ -12,14 +12,12 @@
     <input
       type="text"
       formControlName="activityName"
-      required
       [ngClass]="{formError: activityForm.controls.activityName.invalid && activityForm.controls.activityName.touched }" />
     <input
       type="text"
       formControlName="duration"
-      required
       [ngClass]="{formError: activityForm.controls.duration.invalid && activityForm.controls.duration.touched }"/>
     <input type="checkbox" formControlName="isImportant" />
-    <button #closemodal type="submit" [disabled]="activityForm.invalid">Add</button>
+    <button id="add-activity-button" #closemodal type="submit" [disabled]="activityForm.invalid">Add</button>
   </form>
 </modal>

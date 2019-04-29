@@ -15,8 +15,7 @@ import { HttpService } from '../shared/services/http.service';
   providers: [
     ActivitiesResolver,
     HttpService
-  ],
-  bootstrap: [ActivitiesComponent]
+  ]
 })
 
 export class ActivitiesModule { }
