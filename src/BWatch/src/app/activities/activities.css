@@ -13,3 +13,21 @@
 .formError {
   background-color: #bd0202;
 }
+
+.activity-container {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 0.3rem solid #61c7d3;
+  border-radius: 0.3rem;
+}
+
+a.activity-title, a.activity-title:hover {
+  color: #a70000;
+  font-weight: 700;
+  border-bottom: 2px solid #a70000; text-decoration: none;
+}
+
+a.activity-title:hover {
+  cursor: pointer;
+}

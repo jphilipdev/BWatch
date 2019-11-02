@@ -1,8 +1,8 @@
 <h2>Activities</h2>
-<div *ngFor="let activity of activities">
+<div *ngFor="let activity of activities" class="activity-container">
   <expand-panel>
-    <div expand-title>{{activity.name}}</div>
-    <div expand-body>test content {{activity.name | important:activity.isImportant}}</div>
+    <a expand-title class="activity-title">{{activity.name}}</a>
+    <div expand-body class="activity-body">{{activity.name | important:activity.isImportant}}</div>
   </expand-panel>
 </div>
 
