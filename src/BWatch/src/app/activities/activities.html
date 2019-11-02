@@ -1,5 +1,5 @@
 <h2>Activities</h2>
-<div *ngFor="let activity of activities" >
+<div *ngFor="let activity of activities">
   <expand-panel>
     <div expand-title>{{activity.name}}</div>
     <div expand-body>test content {{activity.name | important:activity.isImportant}}</div>
@@ -8,16 +8,21 @@
 
 <button class="btn btn-primary" modal-trigger="add-activity-modal">Add Activity</button>
 <modal modalId="add-activity-modal" title="Add Activity">
-  <form [formGroup]="activityForm" (ngSubmit)="addActivity(activityForm.value)">
-    <input
-      type="text"
-      formControlName="activityName"
-      [ngClass]="{formError: activityForm.controls.activityName.invalid && activityForm.controls.activityName.touched }" />
-    <input
-      type="text"
-      formControlName="duration"
-      [ngClass]="{formError: activityForm.controls.duration.invalid && activityForm.controls.duration.touched }"/>
-    <input type="checkbox" formControlName="isImportant" />
-    <button id="add-activity-button" #closemodal type="submit" [disabled]="activityForm.invalid">Add</button>
+  <form [formGroup]="activityForm" (ngSubmit)="addActivity(activityForm.value)" id="add-activity-form">
+    <div class="field-container">
+      <label for="activityName">Name</label>
+      <input type="text" formControlName="activityName"
+        [ngClass]="{formError: activityForm.controls.activityName.invalid && activityForm.controls.activityName.dirty }" />
+    </div>
+    <div class="field-container">
+      <label for="duration">Duration</label>
+      <input type="text" formControlName="duration"
+        [ngClass]="{formError: activityForm.controls.duration.invalid && activityForm.controls.duration.dirty }" />
+    </div>
+    <div class="field-container">
+      <label for="isImportant">Important</label>
+      <input type="checkbox" formControlName="isImportant" />
+    </div>
+    <button id="add-activity-button" class="btn btn-primary" #closemodal type="submit" [disabled]="activityForm.invalid">Add</button>
   </form>
 </modal>

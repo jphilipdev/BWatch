@@ -5,7 +5,7 @@ import { breakpoint } from './styles/constants';
   selector: 'main',
   templateUrl: './main.html',
   styles: [`
-    #main-container { display: flex; flex-direction: column; align-items: center; height: 100vh; background-color: floralwhite; }
+    #main-container { display: flex; flex-direction: column; align-items: center; height: 100vh; background-color: #fffaf0; }
     #app-container { width: 100%; max-width: ${breakpoint.lg}; height: 100vh; background-color: antiquewhite; }
     #page-container { margin: 2rem; }
   `]

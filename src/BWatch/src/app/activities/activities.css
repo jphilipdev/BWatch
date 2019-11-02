@@ -1,0 +1,15 @@
+.field-container {
+  margin-bottom: 1rem;
+}
+
+.field-container label {
+  margin-right: 0.5rem;
+}
+
+#add-activity-form .field-container > input {
+  background: #fffcf7;
+}
+
+.formError {
+  background-color: #bd0202;
+}

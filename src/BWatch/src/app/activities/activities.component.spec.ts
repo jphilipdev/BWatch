@@ -10,7 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { TOASTR_TOKEN } from '../shared/services/toastr.service';
 import { ExpandPanel } from '../shared/components/expandPanel/expand-panel.component';
 
-describe('ActivitesComponent', () => {
+describe('ActivitiesComponent', () => {
   let fixture: ComponentFixture<ActivitiesComponent>;
   let component: ActivitiesComponent;
   let element: HTMLElement;

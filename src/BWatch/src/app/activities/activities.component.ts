@@ -8,9 +8,7 @@ import { validateDuration } from '../shared/directives/durationValidator/duratio
 @Component({
   selector: 'activities',
   templateUrl: './activities.html',
-  styles: [`
-    .formError { background-color: red; }
-  `]
+  styleUrls: ['./activities.css']
 })
 
 export class ActivitiesComponent implements OnInit {
