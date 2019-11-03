@@ -9,6 +9,19 @@
       "id": 2,
       "name": "Gym",
       "isImportant": false
+    },
+    {
+      "name": "kayak",
+      "isImportant": true,
+      "duration": "30",
+      "id": 3
+    }
+  ],
+  "foods": [
+    {
+      "id": 1,
+      "name": "Milk",
+      "quantity": "200ml"
     }
   ]
 }

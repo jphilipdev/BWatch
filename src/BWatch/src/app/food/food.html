@@ -1,1 +1,12 @@
 <h2>Food</h2>
+
+<mat-accordion>
+  <div *ngFor="let food of foods">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{food.name}}</mat-panel-title>
+      </mat-expansion-panel-header>
+      {{food.quantity}}
+    </mat-expansion-panel>
+  </div>
+</mat-accordion>

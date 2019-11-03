@@ -10,6 +10,9 @@ import { ImportantPipe } from './pipes/important.pipe';
 import { HttpService } from './services/http.service';
 import { TOASTR_TOKEN, Toastr } from './services/toastr.service';
 import { JQUERY_TOKEN } from './services/jquery.service';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatListModule } from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 declare let toastr: Toastr
 declare let $: any
@@ -17,7 +20,9 @@ declare let $: any
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule,
+    MatListModule,
   ],
   declarations: [
     ExpandPanel,
@@ -44,7 +49,10 @@ declare let $: any
     ModalComponent,
     ModalTriggerDirective,
     DurationValidatorDirective,
-    ImportantPipe
+    ImportantPipe,
+    MatSliderModule,
+    MatListModule,
+    MatExpansionModule
   ]
 })
 
