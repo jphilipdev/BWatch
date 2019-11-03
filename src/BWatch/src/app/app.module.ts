@@ -10,12 +10,14 @@ import { BWatchComponent } from './bwatch/bwatch.component';
 import { ActivitiesService } from './activities/activities.service';
 
 import { appRoutes } from './app.routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   declarations: [
     MainComponent,
