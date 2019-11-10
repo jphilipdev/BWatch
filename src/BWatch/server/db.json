@@ -22,6 +22,11 @@
       "id": 1,
       "name": "Milk",
       "quantity": "200ml"
+    },
+    {
+      "name": "Cheese",
+      "quantity": "100g",
+      "id": 2
     }
   ]
 }

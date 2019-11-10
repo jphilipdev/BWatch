@@ -12,3 +12,9 @@ export const breakpoint = {
   lgMax: '1689px',
   xlg: '1690px'
 };
+
+export const colours = {
+  themePrimary: '#303030',
+  themeAccent: '#e91e63'
+  //c2185b
+};
