@@ -28,5 +28,12 @@
       "quantity": "100g",
       "id": 2
     }
+  ],
+  "medicines": [
+    {
+      "id": 1,
+      "name": "Calcium",
+      "quantity": "1 effervescent"
+    }
   ]
 }

@@ -1,2 +1,12 @@
 <h2>Medicine</h2>
-<button (click)="clickHandler()">Go Home</button>
+
+<div class="medicines-container">
+  <div *ngFor="let medicine of medicines">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{medicine.name}}</mat-panel-title>
+      </mat-expansion-panel-header>
+      {{medicine.quantity}}
+    </mat-expansion-panel>
+  </div>
+</div>

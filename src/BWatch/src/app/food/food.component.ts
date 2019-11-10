@@ -3,7 +3,6 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FoodService } from './food.service';
 import { AddFoodComponent } from './add-food.component';
 import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
-import { inject } from '@angular/core/testing';
 
 @Component({
   selector: 'food',

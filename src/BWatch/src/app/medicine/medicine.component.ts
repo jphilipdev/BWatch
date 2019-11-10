@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { MedicineService } from './medicine.service';
 
 @Component({
   templateUrl: './medicine.html'
 })
 
-export class MedicineComponent {
-  constructor(private router: Router) {
+export class MedicineComponent implements OnInit {
+  medicines: any
 
+  constructor(private medicineService: MedicineService) {
   }
 
-  clickHandler() {
-    this.router.navigate(['']);
+  ngOnInit(): void {
+    this.medicineService.getMedicines().subscribe(medicines => {
+      this.medicines = medicines;
+    });
   }
 }
