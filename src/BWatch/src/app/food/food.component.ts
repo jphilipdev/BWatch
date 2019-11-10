@@ -16,6 +16,10 @@ export class FoodComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getFoods();
+  }
+
+  private getFoods() {
     this.foodService.getFoods().subscribe(foods => {
       this.foods = foods;
     });
@@ -33,7 +37,8 @@ export class FoodComponent implements OnInit {
 
   private addFood(food): void {
     this.foodService.addFood(food).subscribe(()=> {
-      this.toastr.success(food.name, 'Food Added!')
+      this.toastr.success(food.name, 'Food Added!');
+      this.getFoods();
     });
   }
  }
