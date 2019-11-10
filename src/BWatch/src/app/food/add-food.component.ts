@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 
 @Component({
@@ -11,20 +11,17 @@ import { MatDialogRef } from '@angular/material';
 export class AddFoodComponent implements OnInit {
   foodForm: FormGroup
 
-  constructor(public dialogRef: MatDialogRef<AddFoodComponent>) {
+  constructor(public dialogRef: MatDialogRef<AddFoodComponent>, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
-    let foodName = new FormControl(null, Validators.required);
-    let foodQuantity = new FormControl(null, Validators.required);
-    this.foodForm = new FormGroup({
-      foodName,
-      foodQuantity
-    })
+    this.foodForm = this.formBuilder.group({
+      foodName: ['', Validators.required],
+      foodQuantity: ['', Validators.required]
+    });
   }
 
-  addFood(foodFormValues){
-    const { foodName, foodQuantity } = foodFormValues;
+  addFood({ foodName, foodQuantity }){
     if(this.foodForm.valid) {
       this.dialogRef.close({ foodName, foodQuantity });
     }
