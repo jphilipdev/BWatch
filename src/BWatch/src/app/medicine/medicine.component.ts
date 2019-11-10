@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MedicineService } from './medicine.service';
 
 @Component({
-  templateUrl: './medicine.html'
+  selector: 'medicine',
+  templateUrl: './medicine.html',
+  styleUrls: ['./medicine.css']
 })
 
 export class MedicineComponent implements OnInit {
