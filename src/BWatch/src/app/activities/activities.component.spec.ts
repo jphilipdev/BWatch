@@ -6,9 +6,9 @@ import { of } from 'rxjs';
 import { ActivitiesComponent } from './activities.component';
 import { ActivitiesResolver } from './activities.resolver';
 import { ActivitiesService } from './activities.service';
-import { SharedModule } from '../shared/shared.module';
-import { TOASTR_TOKEN } from '../shared/services/toastr.service';
-import { ExpandPanel } from '../shared/components/expandPanel/expand-panel.component';
+import { SharedModule } from '@shared/shared.module';
+import { TOASTR_TOKEN } from '@shared/services/toastr.service';
+import { ExpandPanel } from '@shared/components/expandPanel/expand-panel.component';
 
 describe('ActivitiesComponent', () => {
   let fixture: ComponentFixture<ActivitiesComponent>;

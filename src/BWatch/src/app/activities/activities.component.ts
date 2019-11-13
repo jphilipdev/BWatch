@@ -2,8 +2,8 @@ import { Inject, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ActivitiesService } from './activities.service';
-import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
-import { validateDuration } from '../shared/directives/durationValidator/duration-validator';
+import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
+import { validateDuration } from '@shared/directives/durationValidator/duration-validator';
 
 @Component({
   selector: 'activities',

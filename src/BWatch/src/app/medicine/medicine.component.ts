@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MedicineService } from './medicine.service';
 import { MatDialog } from '@angular/material';
 import { AddMedicineComponent } from './add-medicine.component';
-import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
+import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
 
 @Component({
   selector: 'medicine',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { foodRoutes } from './food.routes';
 import { FoodComponent } from './food.component';
 import { AddFoodComponent } from './add-food.component';
