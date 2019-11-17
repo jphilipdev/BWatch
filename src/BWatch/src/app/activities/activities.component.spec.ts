@@ -45,7 +45,7 @@ describe('ActivitiesComponent', () => {
   });
 
   it('should have a title of Activities', () => {
-    expect(element.querySelector('h2').textContent).toBe('Activities');
+    expect(element.querySelector('h2').innerText).toBe('Activities');
   });
 
   it('should render an expand-panel for each activity', () => {
