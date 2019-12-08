@@ -1,8 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FoodService } from './food.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { AddFoodComponent } from './add-food.component';
-import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
+import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
+import { loadFoods } from '@actions/foodActions';
+
 
 @Component({
   selector: 'food',
@@ -11,18 +14,16 @@ import { TOASTR_TOKEN, Toastr } from '../shared/services/toastr.service';
 })
 
 export class FoodComponent implements OnInit {
-  private foods: any;
-  constructor(public dialog: MatDialog, private foodService: FoodService, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
+  private foods$: Observable<any> = this.store.select(state => state.food.foods);
+  constructor(private store: Store<{food: any}>, public dialog: MatDialog, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
   }
 
   ngOnInit(): void {
-    this.getFoods();
+    this.loadFoods();
   }
 
-  private getFoods() {
-    this.foodService.getFoods().subscribe(foods => {
-      this.foods = foods;
-    });
+  private loadFoods() {
+    this.store.dispatch({type: loadFoods.type});
   }
 
   onAddFoodClicked(): void {
@@ -36,9 +37,9 @@ export class FoodComponent implements OnInit {
   }
 
   private addFood(food): void {
-    this.foodService.addFood(food).subscribe(()=> {
-      this.toastr.success(food.name, 'Food Added!');
-      this.getFoods();
-    });
+    // this.foodService.addFood(food).subscribe(()=> {
+    //   this.toastr.success(food.name, 'Food Added!');
+    //   this.getFoods();
+    // });
   }
  }

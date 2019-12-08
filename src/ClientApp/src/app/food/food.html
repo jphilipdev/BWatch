@@ -1,7 +1,7 @@
 <h2>Food</h2>
 
 <mat-accordion>
-  <div *ngFor="let food of foods" class="food-panel-container">
+  <div *ngFor="let food of foods$ | async" class="food-panel-container">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>{{food.name}}</mat-panel-title>
