@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatListModule } from '@angular/material/list';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './reducers';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { reducers, metaReducers } from './reducers';
         strictActionImmutability: true
       }
     }),
+    StoreDevtoolsModule.instrument(),
   ],
   declarations: [
     MainComponent,
