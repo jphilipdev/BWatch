@@ -27,6 +27,11 @@
       "name": "Cheese",
       "quantity": "100g",
       "id": 2
+    },
+    {
+      "name": "Yogurt",
+      "quantity": "1 pot",
+      "id": 3
     }
   ],
   "medicines": [

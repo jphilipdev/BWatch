@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AddFoodComponent } from './add-food.component';
 import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
-import { loadFoods } from '@actions/foodActions';
+import { loadFoods, addFood, addFoodSuccess } from '@actions/foodActions';
 
 
 @Component({
@@ -37,6 +37,7 @@ export class FoodComponent implements OnInit {
   }
 
   private addFood(food): void {
+    this.store.dispatch({type: addFood.type, payload: food});
     // this.foodService.addFood(food).subscribe(()=> {
     //   this.toastr.success(food.name, 'Food Added!');
     //   this.getFoods();

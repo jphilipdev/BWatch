@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadFoods, loadFoodsSuccess } from '@actions/foodActions';
+import { loadFoodsSuccess } from '@actions/foodActions';
 
 const initialState = { foods: []};
 
