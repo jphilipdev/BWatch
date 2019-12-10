@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { FoodComponent } from './food.component';
+import { FoodContainerComponent } from './food-container.component';
 
 export const foodRoutes: Routes = [
-  { path: '', component: FoodComponent }
+  { path: '', component: FoodContainerComponent }
 ]

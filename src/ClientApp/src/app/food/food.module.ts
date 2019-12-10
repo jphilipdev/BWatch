@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { foodRoutes } from './food.routes';
+import { FoodContainerComponent } from './food-container.component';
 import { FoodComponent } from './food.component';
 import { AddFoodComponent } from './add-food.component';
 import { FoodService } from './food.service';
@@ -15,6 +16,7 @@ import { FoodEffects } from 'app/effects/foodEffects';
     EffectsModule.forRoot([FoodEffects])
   ],
   declarations: [
+    FoodContainerComponent,
     FoodComponent,
     AddFoodComponent
   ],
