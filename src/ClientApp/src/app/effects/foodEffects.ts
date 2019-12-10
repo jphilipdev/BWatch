@@ -1,30 +1,39 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
-import { map, mergeMap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 import { FoodService } from 'app/food/food.service';
-import { loadFoods, loadFoodsSuccess, addFood, addFoodSuccess } from 'app/actions/foodActions';
+import { loadFoods, loadFoodsPending, loadFoodsSuccess, loadFoodsFailure, addFood, addFoodPending, addFoodSuccess, addFoodFailure } from 'app/actions/foodActions';
 
 @Injectable()
 export class FoodEffects {
-  constructor(private actions$: Actions, private foodService: FoodService) {
+  constructor(private store: Store<{food: any}>, private actions$: Actions, private foodService: FoodService) {
   }
 
   loadFoods$ = createEffect(() => this.actions$.pipe(
     ofType(loadFoods.type),
+    tap(() => this.store.next({ type: loadFoodsPending.type })),
     mergeMap(() => this.foodService.getFoods()
       .pipe(
         map(foods => ({ type: loadFoodsSuccess.type, payload: foods })),
-        catchError(() => EMPTY)
+        catchError(error => {
+          const message = 'Error loading foods';
+          return handleError(message, error, loadFoodsFailure.type);
+        })
       ))
   ));
 
   addFood$ = createEffect(() => this.actions$.pipe(
     ofType(addFood.type),
-    mergeMap((action:any) => this.foodService.addFood(action.payload)
+    tap(() => this.store.next({ type: addFoodPending.type })),
+    mergeMap((action: any) => this.foodService.addFood(action.payload)
       .pipe(
         map(() => ({ type: addFoodSuccess.type })),
-        catchError(() => EMPTY)
+        catchError(error => {
+          const message = 'Error adding food';
+          return handleError(message, error, addFoodFailure.type);
+        })
       ))
   ));
 
@@ -34,4 +43,8 @@ export class FoodEffects {
   ));
 }
 
+const handleError = (message, error, type) => {
+  console.log(message, error);
+  return of({ type: type, payload: message });
+};
 
