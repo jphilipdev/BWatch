@@ -6,14 +6,14 @@ import { bindActionCreator } from '@shared/functions/redux';
 
 @Component({
   selector: 'food-container',
-  templateUrl: './food-container.html'
-  // template: `
-  // <food
-  //   foods="foods$ | async"
-  //   loadFoodApi="loadFoodsApi$ | async"
-  //   addFoodApi="addFoodApi$ | async"
-  //   addFood="addFood">
-  // </food>`
+  template: `
+    <food
+      [foods]="foods$ | async"
+      [loadFoods]="loadFoods"
+      [loadFoodsApi]="loadFoodsApi$ | async"
+      [addFood]="addFood"
+      [addFoodApi]="addFoodApi$ | async">
+    </food>`
 })
 export class FoodContainerComponent {
   private foods$: Observable<any>;
