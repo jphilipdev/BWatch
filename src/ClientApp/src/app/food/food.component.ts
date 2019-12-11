@@ -1,11 +1,7 @@
 import { Component, OnInit, Inject, Input, OnChanges } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { AddFoodComponent } from './add-food.component';
 import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
-import { tap, filter } from 'rxjs/operators';
-
 
 @Component({
   selector: 'food',

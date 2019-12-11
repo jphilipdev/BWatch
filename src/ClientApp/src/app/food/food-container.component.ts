@@ -25,8 +25,8 @@ export class FoodContainerComponent {
   constructor(private store: Store<{ food: any }>) {
     this.foods$ = this.store.select(state => state.food.foods);
     this.loadFoods = bindActionCreator(store, loadFoods);
-    this.loadFoodsApi$ = this.store.select(state => state.food.loadFood);
+    this.loadFoodsApi$ = this.store.select(state => state.food.loadFoodsApi);
     this.addFood = bindActionCreator(store, addFood);
-    this.addFoodApi$ = this.store.select(state => state.food.addFood);
+    this.addFoodApi$ = this.store.select(state => state.food.addFoodApi);
   }
 }

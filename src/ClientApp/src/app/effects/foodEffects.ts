@@ -13,38 +13,38 @@ export class FoodEffects {
 
   loadFoods$ = createEffect(() => this.actions$.pipe(
     ofType(loadFoods.type),
-    tap(() => this.store.next({ type: loadFoodsPending.type })),
+    tap(() => this.store.next(loadFoodsPending())),
     mergeMap(() => this.foodService.getFoods()
       .pipe(
-        map(foods => ({ type: loadFoodsSuccess.type, payload: foods })),
+        map(foods => loadFoodsSuccess(foods)),
         catchError(error => {
           const message = 'Error loading foods';
-          return handleError(message, error, loadFoodsFailure.type);
+          return handleError(message, error, loadFoodsFailure);
         })
       ))
   ));
 
   addFood$ = createEffect(() => this.actions$.pipe(
     ofType(addFood.type),
-    tap(() => this.store.next({ type: addFoodPending.type })),
+    tap(() => this.store.next(addFoodPending())),
     mergeMap((action: any) => this.foodService.addFood(action.payload)
       .pipe(
-        map(() => ({ type: addFoodSuccess.type })),
+        map(() => addFoodSuccess()),
         catchError(error => {
           const message = 'Error adding food';
-          return handleError(message, error, addFoodFailure.type);
+          return handleError(message, error, addFoodFailure);
         })
       ))
   ));
 
   addFoodSuccess$ = createEffect(() => this.actions$.pipe(
     ofType(addFoodSuccess.type),
-    map(() => ({ type: loadFoods.type }))
+    map(() => loadFoods())
   ));
 }
 
-const handleError = (message, error, type) => {
+const handleError = (message, error, actionCreator) => {
   console.log(message, error);
-  return of({ type: type, payload: message });
+  return of(actionCreator(message));
 };
 
