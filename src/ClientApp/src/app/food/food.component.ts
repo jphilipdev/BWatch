@@ -45,7 +45,7 @@ export class FoodComponent implements OnInit, OnChanges {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.addFood({ name: result.foodName, quantity: result.foodQuantity });
+      this.addFood(result.foodName, result.foodQuantity);
     })
   }
 }
