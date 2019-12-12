@@ -1,7 +1,8 @@
-import { Component, OnInit, Inject, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AddFoodComponent } from './add-food.component';
 import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
+import { OnChange } from '@shared/decorators/on-change';
 
 @Component({
   selector: 'food',
@@ -9,12 +10,16 @@ import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
   styleUrls: ['./food.css']
 })
 
-export class FoodComponent implements OnInit, OnChanges {
+export class FoodComponent implements OnInit {
   @Input() foods: any;
   @Input() loadFoods: any;
   @Input() loadFoodsApi: any;
   @Input() addFood: any;
+
+  @OnChange(function (value, changes) { this.addFoodApiChanged(value) })
   @Input() addFoodApi: any;
+
+  private addedFood: any;
 
   constructor(public dialog: MatDialog, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
   }
@@ -23,15 +28,13 @@ export class FoodComponent implements OnInit, OnChanges {
     this.loadFoods();
   }
 
-  ngOnChanges(changes: any): void {
-    if (changes.addFoodApi && changes.addFoodApi.previousValue) {
-      if (!changes.addFoodApi.previousValue.success && this.addFoodApi.success) {
-        this.toastr.success('meh', 'Food Added!');
-      }
+  private addFoodApiChanged(value) {
+    if (value.success) {
+      this.toastr.success(this.addedFood.foodName, 'Food Added!');
+    }
 
-      if (!changes.addFoodApi.previousValue.failure && this.addFoodApi.failure) {
-        this.toastr.error('meh', 'Error Adding Food');
-      }
+    if (value.failure) {
+      this.toastr.error(value.errorMessage, 'Error Adding Food');
     }
   }
 
@@ -41,6 +44,7 @@ export class FoodComponent implements OnInit, OnChanges {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.addedFood = result;
       this.addFood(result.foodName, result.foodQuantity);
     })
   }

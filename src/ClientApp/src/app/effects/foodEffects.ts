@@ -19,7 +19,7 @@ export class FoodEffects {
         map(foods => loadFoodsSuccess(foods)),
         catchError(error => {
           const message = 'Error loading foods';
-          return handleError(message, error, loadFoodsFailure);
+          return handleError(message, error, loadFoodsFailure.type);
         })
       ))
   ));
@@ -45,6 +45,5 @@ export class FoodEffects {
 
 const handleError = (message, error, actionCreator) => {
   console.log(message, error);
-  return of(actionCreator(message));
+  return of(actionCreator(error.message));
 };
-
