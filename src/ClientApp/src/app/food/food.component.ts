@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AddFoodComponent } from './add-food.component';
 import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
-import { OnChange } from '@shared/decorators/on-change';
+import { OnChange } from '@shared/decorators/on-change.decorator';
 
 @Component({
   selector: 'food',
