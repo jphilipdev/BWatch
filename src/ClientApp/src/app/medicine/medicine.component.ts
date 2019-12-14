@@ -15,8 +15,6 @@ export class MedicineComponent implements OnInit {
   @Input() medicines: any;
   @Input() loadMedicines: any;
   @Input() addMedicine: any;
-
-  @OnChange(function (value) { this.loadMedicinesApiChanged(value) })
   @Input() loadMedicinesApi: any;
 
   @OnChange(function (value) { this.addMedicineApiChanged(value) })
@@ -29,12 +27,6 @@ export class MedicineComponent implements OnInit {
 
   ngOnInit() {
     this.loadMedicines();
-  }
-
-  loadMedicinesApiChanged(value) {
-    if (value.pending) {
-
-    }
   }
 
   addMedicineApiChanged(value) {

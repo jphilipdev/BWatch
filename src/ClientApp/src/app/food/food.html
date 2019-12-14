@@ -1,6 +1,7 @@
 <h2>Food</h2>
 
-<mat-accordion>
+<div *ngIf="loadFoodsApi.pending"><mat-spinner></mat-spinner></div>
+<mat-accordion *ngIf="!loadFoodsApi.pending">
   <div *ngFor="let food of foods" class="food-panel-container">
     <mat-expansion-panel>
       <mat-expansion-panel-header>

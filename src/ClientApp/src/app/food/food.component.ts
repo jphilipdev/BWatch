@@ -15,8 +15,6 @@ export class FoodComponent implements OnInit {
   @Input() foods: any;
   @Input() loadFoods: any;
   @Input() addFood: any;
-
-  @OnChange(function (value) { this.loadFoodsApiChanged(value) })
   @Input() loadFoodsApi: any;
 
   @OnChange(function (value) { this.addFoodApiChanged(value) })
@@ -29,12 +27,6 @@ export class FoodComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadFoods();
-  }
-
-  private loadFoodsApiChanged(value) {
-    if (value.pending) {
-
-    }
   }
 
   private addFoodApiChanged(value) {

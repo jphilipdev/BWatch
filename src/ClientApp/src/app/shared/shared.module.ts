@@ -10,7 +10,7 @@ import { ImportantPipe } from './pipes/important.pipe';
 import { HttpService } from './services/http.service';
 import { TOASTR_TOKEN, Toastr } from './services/toastr.service';
 import { JQUERY_TOKEN } from './services/jquery.service';
-import { MatSliderModule, MatListModule, MatExpansionModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatSliderModule, MatListModule, MatExpansionModule, MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule } from '@angular/material';
 
 declare let toastr: Toastr
 declare let $: any
@@ -24,7 +24,8 @@ declare let $: any
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     ExpandPanel,
@@ -58,7 +59,8 @@ declare let $: any
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ]
 })
 
