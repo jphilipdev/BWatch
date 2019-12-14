@@ -1,7 +1,6 @@
 import { createAction } from '@ngrx/store';
 import { ApiAction } from '@redux/interfaces';
 
-
 export const loadFoods = createAction('[Food] Load');
 export const loadFoodsApi: ApiAction = {
   pending: createAction('[Food] Load Pending'),

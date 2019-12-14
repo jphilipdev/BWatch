@@ -11,12 +11,15 @@ import { OnChange } from '@shared/decorators/on-change.decorator';
 })
 
 export class FoodComponent implements OnInit {
+
   @Input() foods: any;
   @Input() loadFoods: any;
-  @Input() loadFoodsApi: any;
   @Input() addFood: any;
 
-  @OnChange(function (value, changes) { this.addFoodApiChanged(value) })
+  @OnChange(function (value) { this.loadFoodsApiChanged(value) })
+  @Input() loadFoodsApi: any;
+
+  @OnChange(function (value) { this.addFoodApiChanged(value) })
   @Input() addFoodApi: any;
 
   private addedFood: any;
@@ -26,6 +29,12 @@ export class FoodComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadFoods();
+  }
+
+  private loadFoodsApiChanged(value) {
+    if (value.pending) {
+
+    }
   }
 
   private addFoodApiChanged(value) {

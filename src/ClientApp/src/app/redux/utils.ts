@@ -10,7 +10,7 @@ export const async = {
   default: () => ({ ...asyncStates.default }),
   pending: () => ({ ...asyncStates.pending }),
   success: () => ({ ...asyncStates.success }),
-  failure: (errorMessage) => ({ ...asyncStates.failure, errorMessage })
+  failure: errorMessage => ({ ...asyncStates.failure, errorMessage })
 };
 
 const asyncStates = {
@@ -53,13 +53,11 @@ export const createApiEffect = (store, actions, triggeringAction, apiAction: Api
   mergeMap((action: any) => apiCall(action.payload)
     .pipe(
       map(payload => apiAction.success(payload)),
-      catchError(error => {
-        return handleError(errorMessage, error, apiAction.failure);
-      })
+      catchError(error => handleError(errorMessage, error, apiAction.failure))
     ))
 ));
 
-const handleError = (message, error, actionCreator) => {
+const handleError = (message, error, failureAction) => {
   console.log(message, error);
-  return of(actionCreator(error.message));
+  return of(failureAction(error.message));
 };

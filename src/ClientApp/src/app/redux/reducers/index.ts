@@ -7,13 +7,15 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import { foodReducer } from './foodReducer';
+import { medicineReducer } from './medicineReducer';
 
 export interface State {
 
 }
 
 export const reducers: ActionReducerMap<State> = {
-  food: foodReducer
+  food: foodReducer,
+  medicine: medicineReducer
 };
 
 

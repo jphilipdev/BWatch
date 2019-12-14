@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MedicineService } from './medicine.service';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AddMedicineComponent } from './add-medicine.component';
 import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
+import { OnChange } from '@shared/decorators/on-change.decorator';
 
 @Component({
   selector: 'medicine',
@@ -11,19 +11,42 @@ import { TOASTR_TOKEN, Toastr } from '@shared/services/toastr.service';
 })
 
 export class MedicineComponent implements OnInit {
-  medicines: any
-  constructor(private medicineService: MedicineService, private dialog: MatDialog, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
+
+  @Input() medicines: any;
+  @Input() loadMedicines: any;
+  @Input() addMedicine: any;
+
+  @OnChange(function (value) { this.loadMedicinesApiChanged(value) })
+  @Input() loadMedicinesApi: any;
+
+  @OnChange(function (value) { this.addMedicineApiChanged(value) })
+  @Input() addMedicineApi: any;
+
+  private addedMedicine: any;
+
+  constructor(private dialog: MatDialog, @Inject(TOASTR_TOKEN) private toastr: Toastr) {
   }
 
-  ngOnInit(): void {
-    this.getMedicines();
+  ngOnInit() {
+    this.loadMedicines();
   }
 
-  private getMedicines() {
-    this.medicineService.getMedicines().subscribe(medicines => {
-      this.medicines = medicines;
-    });
+  loadMedicinesApiChanged(value) {
+    if (value.pending) {
+
+    }
   }
+
+  addMedicineApiChanged(value) {
+    if (value.success) {
+      this.toastr.success(this.addedMedicine.medicineName, 'Medicine Added!');
+    }
+
+    if (value.failure) {
+      this.toastr.error(value.errorMessage, 'Error Adding Medicine');
+    }
+  }
+
 
   onAddMedicineClicked(): void {
     let dialogRef = this.dialog.open(AddMedicineComponent, {
@@ -31,13 +54,8 @@ export class MedicineComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.addMedicine({name: result.medicineName, quantity: result.medicineQuantity });
+      this.addedMedicine = result;
+      this.addMedicine(result.medicineName, result.medicineQuantity);
     });
-  }
-
-  private addMedicine(medicine) {
-    this.medicineService.addMedicine(medicine).subscribe(() => {
-      this.getMedicines();
-    })
   }
 }

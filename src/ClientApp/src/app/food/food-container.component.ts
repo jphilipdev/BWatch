@@ -14,7 +14,8 @@ import { bindActionCreator } from '@redux/utils';
       [loadFoodsApi]="loadFoodsApi$ | async"
       [addFood]="addFood"
       [addFoodApi]="addFoodApi$ | async">
-    </food>`
+    </food>
+  `
 })
 export class FoodContainerComponent {
   private foods$: Observable<any>;
@@ -25,9 +26,9 @@ export class FoodContainerComponent {
 
   constructor(private store: Store<{ food: any }>) {
     this.foods$ = this.store.select(foods);
-    this.loadFoods = bindActionCreator(store, loadFoods);
+    this.loadFoods = bindActionCreator(this.store, loadFoods);
     this.loadFoodsApi$ = this.store.select(loadFoodsApi);
-    this.addFood = bindActionCreator(store, addFood);
+    this.addFood = bindActionCreator(this.store, addFood);
     this.addFoodApi$ = this.store.select(addFoodApi);
   }
 }

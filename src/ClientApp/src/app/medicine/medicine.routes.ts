@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { MedicineComponent } from './medicine.component';
+import { MedicineContainerComponent } from './medicine-container.component';
 
 export const medicineRoutes: Routes = [
-  { path: '', component: MedicineComponent }
+  { path: '', component: MedicineContainerComponent }
 ]
