@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 import { FoodService } from 'app/food/food.service';
-import { loadFoods, loadFoodsApi, addFood, addFoodApi } from 'app/actions/foodActions';
+import { loadFoods, loadFoodsApi, addFood, addFoodApi } from '@redux/actions/foodActions';
 
 @Injectable()
 export class FoodEffects {

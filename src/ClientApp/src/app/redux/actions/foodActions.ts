@@ -1,5 +1,5 @@
 import { createAction } from '@ngrx/store';
-import { ApiAction } from '@shared/interfaces/redux';
+import { ApiAction } from '@redux/interfaces';
 
 
 export const loadFoods = createAction('[Food] Load');

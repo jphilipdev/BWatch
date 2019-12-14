@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { loadFoods, addFood } from '@actions/foodActions';
-import { bindActionCreator } from '@shared/functions/redux';
+import { loadFoods, addFood } from '@redux/actions/foodActions';
+import { bindActionCreator } from '@redux/utils';
 
 @Component({
   selector: 'food-container',

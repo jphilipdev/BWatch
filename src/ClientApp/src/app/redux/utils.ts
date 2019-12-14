@@ -1,5 +1,5 @@
 import { on, On } from '@ngrx/store';
-import { ApiAction } from '@shared/interfaces/redux';
+import { ApiAction } from '@redux/interfaces';
 
 export const bindActionCreator = (store, actionCreator) => (...args) => (store.dispatch(actionCreator(...args)));
 

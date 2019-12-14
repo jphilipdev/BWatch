@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@shared/*": ["app/shared/*"],
-      "@actions/*": ["app/actions/*"]
+      "@redux/*": ["app/redux/*"]
     }
   }
 }

@@ -7,7 +7,7 @@ import { FoodComponent } from './food.component';
 import { AddFoodComponent } from './add-food.component';
 import { FoodService } from './food.service';
 import { EffectsModule } from '@ngrx/effects';
-import { FoodEffects } from 'app/effects/foodEffects';
+import { FoodEffects } from 'app/redux/effects/foodEffects';
 
 @NgModule({
   imports: [

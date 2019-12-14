@@ -1,7 +1,7 @@
 import { createReducer } from '@ngrx/store';
 import Immutable from 'seamless-immutable';
-import { loadFoodsApi, addFoodApi } from '@actions/foodActions';
-import { async, createApiReducers } from '@shared/functions/redux';
+import { loadFoodsApi, addFoodApi } from '@redux/actions/foodActions';
+import { async, createApiReducers } from '@redux/utils';
 
 const initialState = new Immutable({
   foods: [],
