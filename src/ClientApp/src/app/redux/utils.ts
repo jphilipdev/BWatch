@@ -1,5 +1,8 @@
 import { on, On } from '@ngrx/store';
 import { ApiAction } from '@redux/interfaces';
+import { createEffect, ofType } from '@ngrx/effects';
+import { tap, mergeMap, map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 export const bindActionCreator = (store, actionCreator) => (...args) => (store.dispatch(actionCreator(...args)));
 
@@ -42,4 +45,21 @@ export const createApiReducers = (apiAction: ApiAction, createAsyncState, create
     on(apiAction.success, (state, action: any) => state.merge(createAsyncState(async.success())).merge(createSuccessState ? createSuccessState(action.payload) : {})),
     on(apiAction.failure, (state, action: any) => state.merge(createAsyncState(async.failure(action.payload)))),
   ];
+};
+
+export const createApiEffect = (store, actions, triggeringAction, apiAction: ApiAction, apiCall, errorMessage) => createEffect(() => actions.pipe(
+  ofType(triggeringAction.type),
+  tap(() => store.next(apiAction.pending())),
+  mergeMap((action: any) => apiCall(action.payload)
+    .pipe(
+      map(payload => apiAction.success(payload)),
+      catchError(error => {
+        return handleError(errorMessage, error, apiAction.failure);
+      })
+    ))
+));
+
+const handleError = (message, error, actionCreator) => {
+  console.log(message, error);
+  return of(actionCreator(error.message));
 };

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loadFoods, addFood } from '@redux/actions/foodActions';
+import { foods, loadFoodsApi, addFoodApi } from '@redux/selectors/foodSelectors';
 import { bindActionCreator } from '@redux/utils';
 
 @Component({
@@ -23,10 +24,10 @@ export class FoodContainerComponent {
   private addFoodApi$: Observable<any>;
 
   constructor(private store: Store<{ food: any }>) {
-    this.foods$ = this.store.select(state => state.food.foods);
+    this.foods$ = this.store.select(foods);
     this.loadFoods = bindActionCreator(store, loadFoods);
-    this.loadFoodsApi$ = this.store.select(state => state.food.loadFoodsApi);
+    this.loadFoodsApi$ = this.store.select(loadFoodsApi);
     this.addFood = bindActionCreator(store, addFood);
-    this.addFoodApi$ = this.store.select(state => state.food.addFoodApi);
+    this.addFoodApi$ = this.store.select(addFoodApi);
   }
 }
