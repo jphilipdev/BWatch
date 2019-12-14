@@ -1,7 +1,7 @@
 import { createReducer } from '@ngrx/store';
 import Immutable from 'seamless-immutable';
 import { async, createApiReducers } from '@redux/utils';
-import { loadMedicinesApi, addMedicineApi } from '@redux/actions/medicineActions';
+import { loadMedicines, addMedicine } from '@redux/actions/medicineActions';
 
 const initialState = new Immutable({
   medicines: [],
@@ -10,6 +10,6 @@ const initialState = new Immutable({
 });
 
 export const medicineReducer = createReducer(initialState,
-  ...createApiReducers(loadMedicinesApi, asyncState => ({ loadMedicinesApi: asyncState }), successPayload => ({ medicines: successPayload })),
-  ...createApiReducers(addMedicineApi, asyncState => ({ addMedicineApi: asyncState }))
+  ...createApiReducers(loadMedicines, asyncState => ({ loadMedicinesApi: asyncState }), successPayload => ({ medicines: successPayload })),
+  ...createApiReducers(addMedicine, asyncState => ({ addMedicineApi: asyncState }))
 );

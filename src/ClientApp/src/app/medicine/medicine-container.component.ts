@@ -26,9 +26,9 @@ export class MedicineContainerComponent {
 
   constructor(private store: Store<{ medicine: any }>) {
     this.medicines$ = this.store.select(medicines);
-    this.loadMedicines = bindActionCreator(this.store, loadMedicines);
+    this.loadMedicines = bindActionCreator(this.store, loadMedicines.request);
     this.loadMedicinesApi$ = this.store.select(loadMedicinesApi);
-    this.addMedicine = bindActionCreator(this.store, addMedicine);
+    this.addMedicine = bindActionCreator(this.store, addMedicine.request);
     this.addMedicineApi$ = this.store.select(addMedicineApi);
   }
 }

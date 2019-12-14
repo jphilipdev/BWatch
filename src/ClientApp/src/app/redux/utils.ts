@@ -41,14 +41,15 @@ const asyncStates = {
 
 export const createApiReducers = (apiAction: ApiAction, createAsyncState, createSuccessState?): On<any>[] => {
   return [
+    on(apiAction.request, (state) => state.merge(createAsyncState(async.default()))),
     on(apiAction.pending, (state) => state.merge(createAsyncState(async.pending()))),
     on(apiAction.success, (state, action: any) => state.merge(createAsyncState(async.success())).merge(createSuccessState ? createSuccessState(action.payload) : {})),
     on(apiAction.failure, (state, action: any) => state.merge(createAsyncState(async.failure(action.payload)))),
   ];
 };
 
-export const createApiEffect = (store, actions, triggeringAction, apiAction: ApiAction, apiCall, errorMessage) => createEffect(() => actions.pipe(
-  ofType(triggeringAction.type),
+export const createApiEffect = (store, actions, apiAction: ApiAction, apiCall, errorMessage) => createEffect(() => actions.pipe(
+  ofType(apiAction.request.type),
   tap(() => store.next(apiAction.pending())),
   mergeMap((action: any) => apiCall(action.payload)
     .pipe(

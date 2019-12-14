@@ -26,9 +26,9 @@ export class FoodContainerComponent {
 
   constructor(private store: Store<{ food: any }>) {
     this.foods$ = this.store.select(foods);
-    this.loadFoods = bindActionCreator(this.store, loadFoods);
+    this.loadFoods = bindActionCreator(this.store, loadFoods.request);
     this.loadFoodsApi$ = this.store.select(loadFoodsApi);
-    this.addFood = bindActionCreator(this.store, addFood);
+    this.addFood = bindActionCreator(this.store, addFood.request);
     this.addFoodApi$ = this.store.select(addFoodApi);
   }
 }
