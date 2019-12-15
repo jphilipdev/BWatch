@@ -6,6 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main.component';
 import { NavComponent } from './nav/nav.component';
 import { BWatchComponent } from './bwatch/bwatch.component';
+import { RegistrationContainerComponent } from './registration/registration-container.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationNameComponent } from './registration/blades/registration-name.component';
+import { RegistrationSummaryComponent } from './registration/blades/registration-summary.component';
 
 import { ActivitiesService } from './activities/activities.service';
 
@@ -38,6 +42,10 @@ import { reducers, metaReducers } from './redux/reducers';
     MainComponent,
     NavComponent,
     BWatchComponent,
+    RegistrationContainerComponent,
+    RegistrationComponent,
+    RegistrationNameComponent,
+    RegistrationSummaryComponent
   ],
   providers: [ActivitiesService],
   bootstrap: [MainComponent],
