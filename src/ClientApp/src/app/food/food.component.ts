@@ -35,7 +35,7 @@ export class FoodComponent implements OnInit {
     }
 
     if (value.failure) {
-      this.toastr.error(value.errorMessage, 'Error Adding Food');
+      this.toastr.error(value.error.message, 'Error Adding Food');
     }
   }
 

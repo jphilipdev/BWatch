@@ -10,7 +10,7 @@ export const async = {
   default: () => ({ ...asyncStates.default }),
   pending: () => ({ ...asyncStates.pending }),
   success: () => ({ ...asyncStates.success }),
-  failure: errorMessage => ({ ...asyncStates.failure, errorMessage })
+  failure: error => ({ ...asyncStates.failure, error })
 };
 
 const asyncStates = {
@@ -18,19 +18,19 @@ const asyncStates = {
     pending: false,
     success: false,
     failure: false,
-    errorMessage: null
+    error: null
   },
   pending: {
     pending: true,
     success: false,
     failure: false,
-    errorMessage: null
+    error: null
   },
   success: {
     pending: false,
     success: true,
     failure: false,
-    errorMessage: null
+    error: null
   },
   failure: {
     pending: false,
@@ -48,17 +48,17 @@ export const createApiReducers = (apiAction: ApiAction, createAsyncState, create
   ];
 };
 
-export const createApiEffect = (store, actions, apiAction: ApiAction, apiCall, errorMessage) => createEffect(() => actions.pipe(
+export const createApiEffect = (store, actions, apiAction: ApiAction, apiCall, error) => createEffect(() => actions.pipe(
   ofType(apiAction.request.type),
   tap(() => store.next(apiAction.pending())),
   mergeMap((action: any) => apiCall(action.payload)
     .pipe(
       map(payload => apiAction.success(payload)),
-      catchError(error => handleError(errorMessage, error, apiAction.failure))
+      catchError(response => handleError(error, response, apiAction.failure))
     ))
 ));
 
-const handleError = (message, error, failureAction) => {
-  console.log(message, error);
-  return of(failureAction(error.message));
+const handleError = (message, response, failureAction) => {
+  console.log(message, response);
+  return of(failureAction(response.error));
 };

@@ -35,7 +35,7 @@ export class MedicineComponent implements OnInit {
     }
 
     if (value.failure) {
-      this.toastr.error(value.errorMessage, 'Error Adding Medicine');
+      this.toastr.error(value.error.message, 'Error Adding Medicine');
     }
   }
 
