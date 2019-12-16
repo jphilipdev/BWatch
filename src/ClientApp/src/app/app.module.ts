@@ -21,6 +21,9 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './redux/reducers';
 
+import { DynamicWrapperComponent } from '@shared/components/dynamic-wrapper.component';
+import { DynamicElementDirective } from '@shared/directives/dynamic-element.directive';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -45,9 +48,15 @@ import { reducers, metaReducers } from './redux/reducers';
     RegistrationContainerComponent,
     RegistrationComponent,
     RegistrationNameComponent,
-    RegistrationSummaryComponent
+    RegistrationSummaryComponent,
+    DynamicWrapperComponent,
+    DynamicElementDirective
   ],
   providers: [ActivitiesService],
   bootstrap: [MainComponent],
+  entryComponents: [
+    RegistrationNameComponent,
+    RegistrationSummaryComponent
+  ]
 })
 export class AppModule { }

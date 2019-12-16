@@ -4,8 +4,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ExpandPanel } from './components/expandPanel/expand-panel.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { DynamicWrapperComponent } from './components/dynamic-wrapper.component';
 import { ModalTriggerDirective } from './directives/modal-trigger.directive';
 import { DurationValidatorDirective } from './directives/durationValidator/duration-validator.directive';
+import { DynamicElementDirective } from './directives/dynamic-element.directive';
 import { ImportantPipe } from './pipes/important.pipe';
 import { HttpService } from './services/http.service';
 import { TOASTR_TOKEN, Toastr } from './services/toastr.service';
@@ -30,8 +32,10 @@ declare let $: any
   declarations: [
     ExpandPanel,
     ModalComponent,
+    DynamicWrapperComponent,
     ModalTriggerDirective,
     DurationValidatorDirective,
+    DynamicElementDirective,
     ImportantPipe
   ],
   providers: [
@@ -50,8 +54,10 @@ declare let $: any
     ReactiveFormsModule,
     ExpandPanel,
     ModalComponent,
+    DynamicWrapperComponent,
     ModalTriggerDirective,
     DurationValidatorDirective,
+    DynamicElementDirective,
     ImportantPipe,
     MatSliderModule,
     MatListModule,

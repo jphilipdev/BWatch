@@ -1,6 +1,6 @@
 <h2>Registration</h2>
 <div *ngFor="let blade of activeBlades">
   {{blade}}
-  {{getBlade(blade)}}
+  <dynamic-wrapper [component]="getBlade(blade)"></dynamic-wrapper>
 </div>
 
