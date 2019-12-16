@@ -14,15 +14,15 @@ import { JQUERY_TOKEN } from '../../services/jquery.service';
 export class ModalComponent implements OnInit {
   @Input() modalId: string
   @Input() title: string
-  @ViewChild('modalcontainer') modalContainer: ElementRef
-  @ContentChild('closemodal') closeModal: ElementRef
+  //@ViewChild('modalcontainer') modalContainer: ElementRef
+  //@ContentChild('closemodal') closeModal: ElementRef
 
   constructor(@Inject(JQUERY_TOKEN) private $) {
   }
 
   ngOnInit() {
-    this.closeModal.nativeElement.addEventListener('click', () => {
-      this.$(this.modalContainer.nativeElement).modal('hide');
-    });
+   // this.closeModal.nativeElement.addEventListener('click', () => {
+    //  this.$(this.modalContainer.nativeElement).modal('hide');
+   // });
   }
 }
