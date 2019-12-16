@@ -21,6 +21,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './redux/reducers';
 
+import { SharedModule } from '@shared/shared.module';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { reducers, metaReducers } from './redux/reducers';
       }
     }),
     StoreDevtoolsModule.instrument(),
+    SharedModule
   ],
   declarations: [
     MainComponent,
@@ -45,9 +48,13 @@ import { reducers, metaReducers } from './redux/reducers';
     RegistrationContainerComponent,
     RegistrationComponent,
     RegistrationNameComponent,
-    RegistrationSummaryComponent
+    RegistrationSummaryComponent,
   ],
   providers: [ActivitiesService],
   bootstrap: [MainComponent],
+  entryComponents: [
+    RegistrationNameComponent,
+    RegistrationSummaryComponent
+  ]
 })
 export class AppModule { }
