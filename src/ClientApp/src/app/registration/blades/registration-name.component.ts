@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'registration-name',
-  template: 'name'
+  template: '<div>name</div>',
+  styleUrls: ['./blades.css']
 })
 export class RegistrationNameComponent {
 

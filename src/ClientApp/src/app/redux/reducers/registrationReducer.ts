@@ -8,5 +8,10 @@ const initialState = new Immutable({
 });
 
 export const registrationReducer = createReducer(initialState,
-  on(bladeSelected, (state, action) => state.merge({ activeBlades: [...state.activeBlades, action.payload], currentBlade: action.payload }))
+  on(bladeSelected, (state, action) => state.merge({ activeBlades: getActiveBlades(state.activeBlades, action.payload), currentBlade: action.payload }))
 );
+
+const getActiveBlades = (activeBlades: [any], selectedBlade) => {
+  var bladesUpToSelectedBlade = activeBlades.slice(0, activeBlades.indexOf(selectedBlade));
+  return [...bladesUpToSelectedBlade, selectedBlade];
+}

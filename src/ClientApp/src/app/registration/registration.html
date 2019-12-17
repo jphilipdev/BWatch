@@ -1,6 +1,4 @@
-<h2>Registration</h2>
-<div *ngFor="let blade of activeBlades">
-  {{blade}}
-  <dynamic-wrapper [component]="getBlade(blade)"></dynamic-wrapper>
-</div>
+<ng-container *ngFor="let blade of activeBlades">
+  <dynamic-wrapper [component]="getBlade(blade)" [componentClass]="'blade'" class="blade-container"></dynamic-wrapper>
+</ng-container>
 

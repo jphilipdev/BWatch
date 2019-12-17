@@ -1,17 +1,13 @@
-import { Component, Input, OnInit, OnChanges, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RegistrationBlades, RegistrationBladesWorkflow } from './blades-workflow';
 
 @Component({
   selector: 'registration',
   templateUrl: './registration.html',
+  styleUrls: ['./blades/blades.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegistrationComponent implements OnInit, OnChanges {
-  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-    if(changes.activeBlades) {
-      console.log(changes.activeBlades.currentValue)
-    }
-  }
+export class RegistrationComponent implements OnInit {
 
   @Input() activeBlades: any;
   @Input() currentBlade: any;

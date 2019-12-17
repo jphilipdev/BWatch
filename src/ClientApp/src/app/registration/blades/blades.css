@@ -1,0 +1,11 @@
+.blade-container {
+  display: table;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.blade-container:first-of-type {
+  min-height: calc(var(--vh, 1vh) *100 - 192px);
+}
