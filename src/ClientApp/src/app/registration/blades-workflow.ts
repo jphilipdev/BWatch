@@ -18,6 +18,6 @@ export const RegistrationBladesWorkflow = [
   {
     name: RegistrationBlades.Summary,
     component: RegistrationSummaryComponent,
-    actions: { }
+    actions: null
   }
 ];

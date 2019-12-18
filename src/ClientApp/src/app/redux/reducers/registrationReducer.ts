@@ -10,7 +10,7 @@ const initialState = new Immutable({
 
 export const registrationReducer = createReducer(initialState,
   on(initiateFlow, (state, action) => state.merge({ flow: action.payload, activeBlades: [action.payload[0]], currentBlade: action.payload[0] })),
-  on(navigateToBlade, (state, action) => state.merge({ activeBlades: calculateActiveBlades(state, action), currentBlade: action.payload }))
+  on(navigateToBlade, (state, action) => state.merge({ activeBlades: calculateActiveBlades(state, action), currentBlade: findBlade(state.flow, action.payload.nextBladeName) }))
 );
 
 const calculateActiveBlades = (state, action) => {
