@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { RegistrationBlades, RegistrationBladesWorkflow } from './blades-workflow';
+import { RegistrationBladesWorkflow } from './blades-workflow';
 
 @Component({
   selector: 'registration',
@@ -11,13 +11,11 @@ export class RegistrationComponent implements OnInit {
 
   @Input() activeBlades: any;
   @Input() currentBlade: any;
-  @Input() bladeSelected: any;
+  @Input() initiateFlow: any;
+  @Input() navigateToBlade: any;
 
   ngOnInit(): void {
-    this.bladeSelected(RegistrationBlades.Name);
-  }
-
-  getBlade(blade) {
-    return RegistrationBladesWorkflow.filter(p => p.name === blade)[0].component;
+    this.initiateFlow(RegistrationBladesWorkflow);
+    setTimeout(() => this.navigateToBlade(this.currentBlade.name, this.currentBlade.actions.ok.blade), 0);
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { bladeSelected } from '@redux/actions/registrationActions';
+import { initiateFlow, navigateToBlade } from '@redux/actions/registrationActions';
 import { activeBlades, currentBlade } from '@redux/selectors/registrationSelectors';
 import { bindActionCreator } from '@redux/utils';
 import { Observable } from 'rxjs';
@@ -12,18 +12,21 @@ import { delay } from 'rxjs/operators';
   <registration
     [activeBlades]="activeBlades$ | async"
     [currentBlade]="currentBlade$ | async"
-    [bladeSelected]="bladeSelected">
+    [initiateFlow]="initiateFlow"
+    [navigateToBlade]="navigateToBlade">
   </registration>
   `
 })
 export class RegistrationContainerComponent {
   private activeBlades$: Observable<any>;
   private currentBlade$: Observable<any>;
-  private bladeSelected: any;
+  private initiateFlow: any;
+  private navigateToBlade: any;
 
   constructor(private store: Store<{ registration: any }>) {
     this.activeBlades$ = this.store.pipe(delay(0), select(activeBlades));
     this.currentBlade$ = this.store.pipe(delay(0), select(currentBlade));
-    this.bladeSelected = bindActionCreator(this.store, bladeSelected);
+    this.initiateFlow = bindActionCreator(this.store, initiateFlow);
+    this.navigateToBlade = bindActionCreator(this.store, navigateToBlade);
   }
 }
