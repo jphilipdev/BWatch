@@ -18,51 +18,20 @@ const { Server, WebSocket } = require('mock-socket');
   });
   const context = await browser.newContext();
 
-  // Open new page
   const page = await context.newPage();
-  //const server = new Server('ws://localhost:8080');
 
-  //const mockSocket = new WebSocket('ws://localhost:8080');
-
-  // mockSocket.onopen = function open(event) {
-  //   console.log('ws open', event)
-  // };
-
-  //const server3 = new Server2();
-
-  //await page.addInitScript(() => server3.speak())
-
-  //await page.addInitScript({ path: './server3.ts' });
-  //await page.addInitScript({ path: './websocket-server.js' });
   await page.addInitScript({ path: './websocket-server.bundle.js' });
 
-  // page.addInitScript(() => {
-  //   console.log('playwright init')
-  //   const { Server, WebSocket } = require('mock-socket');
-
-  //   window.WebSocket = WebSocket;
-
-  //   const server2 = new Server2();
-
-  //   const server = new Server('ws://localhost:8080');
-  // });
-
-  // Go to http://localhost:4200/
   await page.goto('http://localhost:4200/');
 
   await page.evaluate(() => {
     window.SocketServer.on('connection', socket => {
-      socket.on('message', (message) => {console.log('message from client2', message)});
-      socket.on('close', () => {});
-
-      socket.send('message from server2');
-
       window.MockSocket = socket;
+      window.SocketReceivedMessages = [];
+
+      socket.on('message', message => window.SocketReceivedMessages.push(message));
     });
   });
-
-  await page.evaluate(() => window.speak());
-
 
   // Click text=Activities
   await Promise.all([
@@ -71,6 +40,10 @@ const { Server, WebSocket } = require('mock-socket');
   ]);
 
   await page.evaluate(() => window.MockSocket.send('message from playwright'));
+
+  const socketReceivedMessages = await page.evaluate(() => window.SocketReceivedMessages);
+
+  console.log('asserting messages', socketReceivedMessages);
 
   // Close page
   await page.close();

@@ -24,13 +24,13 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit() {
     const mockSocket = new WebSocket('ws://localhost:8080');
-    mockSocket.onopen = function open(event) {
-      console.log('opened', event)
-    };
+    // mockSocket.onopen = function open(event) {
+    //   console.log('opened', event)
+    // };
 
-    mockSocket.onerror = function er(event) {
-      console.log('error', event)
-    };
+    // mockSocket.onerror = function er(event) {
+    //   console.log('error', event)
+    // };
 
     mockSocket.send('message from activities')
 
