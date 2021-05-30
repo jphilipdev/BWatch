@@ -23,6 +23,21 @@ export class ActivitiesComponent implements OnInit {
   }
 
   ngOnInit() {
+    const mockSocket = new WebSocket('ws://localhost:8080');
+    mockSocket.onopen = function open(event) {
+      console.log('opened', event)
+    };
+
+    mockSocket.onerror = function er(event) {
+      console.log('error', event)
+    };
+
+    mockSocket.send('message from activities')
+
+    mockSocket.onmessage = event => {
+      console.log('message received in activities', event);
+    };
+
     let activityName = new FormControl(null, Validators.required);
     let duration = new FormControl(null, [Validators.required, validateDuration]);
     let isImportant = new FormControl();
